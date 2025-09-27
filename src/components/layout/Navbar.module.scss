@@ -1,0 +1,89 @@
+@import '@/styles/variables.scss';
+
+.nav {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding: $spacing05 $spacing;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__link {
+        position: relative;
+        color: $white;
+        text-decoration: none;
+        font-size: $font-size-sm;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.5rem 0;
+        transition: all 0.5s ease;
+        display: inline-block;
+
+        &:hover {
+            color: $primary-color;
+
+            .nav__underline {
+                width: 100%;
+            }
+
+            .nav__background {
+                transform: scale(1);
+            }
+
+            .nav__number {
+                opacity: 1;
+            }
+        }
+
+        &--active {
+            color: $primary-color;
+
+            .nav__underline {
+                width: 100%;
+            }
+        }
+    }
+
+    &__text {
+        position: relative;
+        z-index: 10;
+    }
+
+    &__underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, $primary-color, rgba($primary-color, 0.5));
+        transition: all 0.5s ease;
+    }
+
+    &__background {
+        position: absolute;
+        inset: 0;
+        background: rgba($primary-color, 0.05);
+        transform: scale(0);
+        transition: transform 0.3s ease;
+        z-index: -1;
+    }
+
+    &__number {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+}
