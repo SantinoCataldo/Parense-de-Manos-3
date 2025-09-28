@@ -1,0 +1,99 @@
+@import '@/styles/variables.scss';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: $font-family-primary;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: $radius2;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  &--main {
+    background: $primary-color;
+    color: $white;
+    border-color: $primary-color;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba($primary-color, 0.2);
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover {
+      background: $primary-color;
+      color: $white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($primary-color, 0.2);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba($primary-color, 0.1);
+    }
+  }
+
+  // Tamaños
+  &--sm {
+    padding: 8px 16px;
+    font-size: 12px;
+    min-height: 32px;
+  }
+
+  &--md {
+    padding: 12px 24px;
+    font-size: 14px;
+    min-height: 40px;
+  }
+
+  &--lg {
+    padding: 16px 32px;
+    font-size: 16px;
+    min-height: 48px;
+  }
+
+  // Modificadores
+  &--fullWidth {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .button {
+    &--sm {
+      padding: 6px 12px;
+      font-size: 11px;
+    }
+
+    &--md {
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+
+    &--lg {
+      padding: 14px 28px;
+      font-size: 15px;
+    }
+  }
+}

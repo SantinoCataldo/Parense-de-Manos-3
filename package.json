@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.35.0",
+    "framer-motion": "^12.23.22",
     "next": "15.5.4",
     "ogl": "^1.0.11",
     "react": "19.1.0",

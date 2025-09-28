@@ -3,6 +3,7 @@ import { Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import LightRays from "@/components/ui/LightRays/LightRays";
+import Background from "@/components/ui/Background/Background";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${oswald.variable}`}>
         <Navbar />
+        <Background />
         <LightRays />
         {children}
       </body>
