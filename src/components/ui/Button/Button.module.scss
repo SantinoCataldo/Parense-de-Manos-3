@@ -6,74 +6,188 @@
   justify-content: center;
   gap: 8px;
   font-family: $font-family-primary;
-  font-weight: 600;
+  font-weight: 700; // Más bold
   text-decoration: none;
   border: 2px solid transparent;
   border-radius: $radius2;
   cursor: pointer;
-  transition: all 0.2s ease;
   text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px; // Espaciado para look más premium
 
+  // Transición más suave y completa
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Efecto ripple base
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+    z-index: 1;
+  }
+
+  &:active::before {
+    width: 300px;
+    height: 300px;
+  }
 
   &:disabled {
-    opacity: 0.6;
+    opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;
+    filter: grayscale(100%);
+    transform: none !important;
   }
+
+  &>* {
+    position: relative;
+    z-index: 2;
+  }
+
   &--main {
-    background: $primary-color;
+    background: linear-gradient(135deg,
+        $primary-color 0%,
+        lighten($primary-color, 5%) 100%);
     color: $white;
     border-color: $primary-color;
+    position: relative;
+
+    box-shadow:
+      0 0 20px rgba($primary-color, 0.3),
+      0 4px 15px rgba(0, 0, 0, 0.2);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg,
+          rgba($primary-color, 0.8),
+          transparent,
+          rgba($primary-color, 0.8),
+          transparent);
+      border-radius: inherit;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow:
+        0 0 30px rgba($primary-color, 0.5),
+        0 8px 25px rgba(0, 0, 0, 0.3);
+
+      &::after {
+        opacity: 1;
+        animation: borderPulse 1.5s ease-in-out infinite;
+      }
     }
 
     &:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 4px rgba($primary-color, 0.2);
+      transform: translateY(-1px) scale(1.01);
+      box-shadow:
+        0 0 25px rgba($primary-color, 0.4),
+        0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes borderPulse {
+
+      0%,
+      100% {
+        opacity: 0.5;
+      }
+
+      50% {
+        opacity: 1;
+      }
     }
   }
 
   &--secondary {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.02);
     color: $primary-color;
     border-color: $primary-color;
+    backdrop-filter: blur(10px);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba($primary-color, 0.1),
+          transparent);
+      transition: left 0.5s ease;
+      z-index: 1;
+    }
 
     &:hover {
-      background: $primary-color;
+      background: rgba($primary-color, 0.1);
       color: $white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba($primary-color, 0.2);
+      border-color: lighten($primary-color, 10%);
+      transform: translateY(-3px);
+      box-shadow:
+        0 0 25px rgba($primary-color, 0.3),
+        0 6px 20px rgba(0, 0, 0, 0.2);
+
+      text-shadow: 0 0 10px rgba($primary-color, 0.5);
+
+      &::before {
+        left: 100%;
+      }
     }
 
     &:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 4px rgba($primary-color, 0.1);
+      transform: translateY(-1px);
+      box-shadow:
+        0 0 20px rgba($primary-color, 0.2),
+        0 3px 10px rgba(0, 0, 0, 0.15);
     }
   }
 
-  // Tamaños
   &--sm {
-    padding: 8px 16px;
+    padding: 10px 20px;
     font-size: 12px;
-    min-height: 32px;
+    min-height: 36px;
+    letter-spacing: 0.3px;
   }
 
   &--md {
-    padding: 12px 24px;
+    padding: 14px 28px;
     font-size: 14px;
-    min-height: 40px;
+    min-height: 44px;
+    letter-spacing: 0.5px;
   }
 
   &--lg {
-    padding: 16px 32px;
+    padding: 18px 36px;
     font-size: 16px;
-    min-height: 48px;
+    min-height: 52px;
+    letter-spacing: 0.8px;
   }
 
-  // Modificadores
+  &--xl {
+    padding: 22px 44px;
+    font-size: 18px;
+    min-height: 60px;
+    letter-spacing: 1px;
+  }
+
   &--fullWidth {
     width: 100%;
   }

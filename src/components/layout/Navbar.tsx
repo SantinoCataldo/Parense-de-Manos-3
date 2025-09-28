@@ -6,17 +6,18 @@ import styles from './Navbar.module.scss';
 
 export default function Navbar() {
     const pathname = usePathname();
-    
+
     const navItems = [
         { name: "Inicio", href: "/" },
+        { name: "Boxeadores", href: "/boxeador" },
         { name: "Combates", href: "/combates" },
-        { name: "Predicciones", href: "/predictions" },
+        { name: "Predicciones", href: "/predicciones" },
         { name: "About", href: "/about" },
     ];
-    
+
     const getLinkClass = (href: string) => {
-        return pathname === href 
-            ? `${styles.nav__link} ${styles['nav__link--active']}` 
+        return pathname === href
+            ? `${styles.nav__link} ${styles['nav__link--active']}`
             : styles.nav__link;
     };
 

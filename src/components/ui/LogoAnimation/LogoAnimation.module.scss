@@ -8,18 +8,39 @@
   cursor: pointer;
   
   &.small {
-    width: 200px;
-    height: 114px;
+    width: clamp(120px, 30vw, 200px);
+    height: clamp(68px, 8vw, 114px);
   }
   
   &.medium {
-    width: 320px;
-    height: 183px;
+    width: clamp(180px, 45vw, 320px);
+    height: clamp(103px, 15vw, 183px);
   }
   
   &.large {
-    width: 640px;
-    height: 380px;
+    width: clamp(240px, 70vw, 640px);
+    height: clamp(140px, 25vw, 380px);
+  }
+
+  @media (max-width: 600px) {
+    &.large {
+      width: 95vw;
+      height: auto;
+      max-width: 340px;
+      max-height: 180px;
+    }
+    &.medium {
+      width: 80vw;
+      height: auto;
+      max-width: 220px;
+      max-height: 120px;
+    }
+    &.small {
+      width: 60vw;
+      height: auto;
+      max-width: 120px;
+      max-height: 68px;
+    }
   }
 }
 

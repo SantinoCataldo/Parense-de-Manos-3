@@ -1,7 +1,7 @@
 @import '@/styles/variables.scss';
 
 .container {
-    margin-top: $spacing2*2;
+    margin-top: $spacing2;
     min-height: 100vh;
     display: flex;
     z-index: 15;
@@ -97,55 +97,11 @@
                 gap: $spacing05;
             }
 
-            &__imageWrapper {
-                position: relative;
-                width: 400px;
-                height: 500px;
-                border-radius: 20px;
-                overflow: hidden;
-                background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
-                border-radius: $radius;
-                backdrop-filter: blur(10px);
-                box-shadow:
-                    0 0 30px $primary-color;
-                border: 2px solid $primary-color;
-
-                &::before {
-                    content: '';
-                    position: absolute;
-                    top: -2px;
-                    left: -2px;
-                    right: -2px;
-                    bottom: -2px;
-                    background: linear-gradient(45deg, transparent, $primary-color, transparent);
-                    border-radius: $radius;
-                    z-index: -1;
-                    animation: borderGlow 2s ease-in-out infinite alternate;
-                }
-
-                @media (max-width: 768px) {
-                    width: 320px;
-                    height: 320px;
-                }
-
-                @media (max-width: 480px) {
-                    width: 250px;
-                    height: 250px;
-                }
-            }
-
-            &__image {
-                object-fit: cover;
-                object-position: top;
-                filter: brightness(1.1) contrast(1.1);
-            }
-
             &__name {
-                font-size: 3rem;
+                font-size: 36px;
                 font-weight: 800;
                 color: $white;
                 padding: 5px $spacing05;
-                border-radius: $radius2;
                 text-align: center;
                 text-transform: uppercase;
                 letter-spacing: 2px;
@@ -157,11 +113,11 @@
                 z-index: 10;
 
                 @media (max-width: 768px) {
-                    font-size: 2.5rem;
+                    font-size: 30px;
                 }
 
                 @media (max-width: 480px) {
-                    font-size: 2rem;
+                    font-size: 24px;
                 }
             }
 
@@ -172,7 +128,6 @@
                 width: 400px;
                 height: 400px;
                 border: 2px dashed rgba(255, 255, 255, 0.3);
-                border-radius: 20px;
                 background: rgba(255, 255, 255, 0.02);
 
                 @media (max-width: 768px) {
@@ -205,7 +160,7 @@
             background: rgba(255, 255, 255, 0.02);
             border: 2px solid transparent;
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
-            border-radius: 12px;
+        
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             width: 120px;
@@ -234,7 +189,9 @@
                 height: 120px;
             }
 
-            &:hover {
+
+            &:hover,
+            &--hovered {
                 border: 2px solid $primary-color;
                 box-shadow: 0 15px 40px rgba(220, 38, 38, 0.3);
                 transform: translateY(-5px);

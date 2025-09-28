@@ -1,9 +1,3 @@
-import Image from "next/image";
+import CombatesPage from "@/components/sections/Combates/CombatesPage";
 
-export default function Home() {
-  return (
-    <main >
-        
-    </main>
-  );
-}
+export default CombatesPage;

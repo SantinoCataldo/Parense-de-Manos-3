@@ -1,0 +1,181 @@
+@import '@/styles/variables.scss';
+
+.combates {
+  position: relative;
+  z-index: 12;
+  margin-top: $spacing2*2;
+  color: $white;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.1), transparent),
+      radial-gradient(1px 1px at 40px 70px, rgba($primary-color, 0.2), transparent);
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    z-index: -1;
+    animation: float 20s infinite linear;
+  }
+
+  &__title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: $spacing05;
+    color: $primary-color;
+    text-shadow: 0 0 15px $primary-color;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 2rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing;
+
+    &__item {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+      display: flex;
+      align-items: center;
+      gap: $spacing;
+      backdrop-filter: blur(10px);
+      box-shadow:
+        0 0 40px rgba($primary-color, 0.4),
+        0 0 80px rgba($primary-color, 0.2),
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border: 2px solid $primary-color;
+      position: relative;
+
+      &__num {
+        position: absolute;
+        top: -13px;
+        left: -13px;
+        color: $background;
+        background: $white;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 0 5px;
+        background: $white;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, transparent, $primary-color, transparent);
+        z-index: -1;
+      }
+
+      &__vs {
+        font-size: 60px;
+        font-weight: 900;
+      }
+
+      &__fighter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+
+        img {
+          object-fit: cover;
+          object-position: top;
+        }
+
+        span {
+          position: absolute;
+          bottom: 0;
+          font-size: 18px;
+          text-transform: uppercase;
+          font-weight: 600;
+          color: $white;
+          padding: 5px $spacing05;
+          text-align: center;
+          background: linear-gradient(135deg, #0000004f, #0000001e);
+          backdrop-filter: blur(10px);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        &__votes {
+          margin-top: 8px;
+          font-size: 14px;
+          font-weight: 600;
+          color: $primary-color;
+          text-align: center;
+        }
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        z-index: 12;
+      }
+
+      &__barraVotos {
+        margin: $spacing05 0;
+        width: 100%;
+        height: 20px;
+        overflow: hidden;
+        position: relative;
+
+        &__a {
+          height: 100%;
+          background: #b3b0a9;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        &__b {
+          height: 100%;
+          background: #ffbd08;
+          backdrop-filter: blur(10px);
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+
+      &__totalVotos {
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $background;
+        padding: 0 5px;
+        background: $white;
+      }
+
+      &__sinVotos {
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $background;
+        padding: 0 5px;
+        background: $white;
+      }
+    }
+  }
+}

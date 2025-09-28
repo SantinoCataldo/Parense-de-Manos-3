@@ -14,12 +14,7 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <motion.div 
-        className={styles.footer__content}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <div className={styles.footer__content}>
         <motion.div 
           className={styles.footer__social}
           initial={{ opacity: 0, y: 10 }}
@@ -75,7 +70,7 @@ export default function Footer() {
             © 2025 Parense de Manos. Todos los derechos reservados.
           </p>
         </motion.div>
-      </motion.div>
+      </div>
     </footer>
   );
 }

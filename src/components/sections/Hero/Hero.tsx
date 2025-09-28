@@ -112,6 +112,7 @@ export default function Hero() {
             marginTop: "2rem",
             cursor: "pointer"
           }}
+          className={styles.container__content__caret}
         >
           <IconCaretDownFilled size={34} />
         </motion.div>
