@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={`${oswald.variable}`}>
         <Navbar />
         <Background />
-        <LightRays raysColor="#D81025" />
+        <LightRays raysColor="#E2183C" />
         {children}
         <Footer />
       </body>
