@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer/Footer";
 import LightRays from "@/components/ui/LightRays/LightRays";
 import Background from "@/components/ui/Background/Background";
 
@@ -25,8 +26,9 @@ export default function RootLayout({
       <body className={`${oswald.variable}`}>
         <Navbar />
         <Background />
-        <LightRays />
+        <LightRays raysColor="#D81025" />
         {children}
+        <Footer />
       </body>
     </html>
   );

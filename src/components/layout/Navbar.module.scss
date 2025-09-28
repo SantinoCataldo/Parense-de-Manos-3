@@ -13,9 +13,13 @@
     &__list {
         display: flex;
         align-items: center;
-        gap: 2rem;
+        background: #ffffff13;
+        backdrop-filter: blur(10px);
+        border: 1px solid #ffffff34;
+        border-radius: $radius2;
+        gap: $spacing;
         margin: 0;
-        padding: 0;
+        padding: $spacing05 $spacing;
     }
 
     &__link {
@@ -62,7 +66,7 @@
 
     &__underline {
         position: absolute;
-        bottom: 0;
+        bottom: 5px;
         left: 0;
         width: 0;
         height: 2px;

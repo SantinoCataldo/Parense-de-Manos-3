@@ -8,14 +8,14 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className={styles.container}>
+    <><section className={styles.container}>
       <div className={styles.container__group}></div>
-      <motion.div 
+      <motion.div
         className={styles.container__content}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ 
-          duration: 0.8, 
+        transition={{
+          duration: 0.8,
           ease: "easeOut",
           staggerChildren: 0.1
         }}
@@ -27,22 +27,22 @@ export default function Hero() {
         >
           <LogoAnimation size="lg" />
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className={styles.container__content__time}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-           <p>Diciembre 20</p>
+          <p>Diciembre 20</p>
           <div className={styles.container__content__time__zone}>
             <p>18HS</p>
             <p className={styles.container__content__time__zone__arg}>ARG</p>
           </div>
 
         </motion.div>
-        
-        <motion.a 
+
+        <motion.a
           href="https://maps.app.goo.gl/ZGELzkMrjuNoD9Qy5"
           target="_blank"
           rel="noopener noreferrer"
@@ -53,8 +53,8 @@ export default function Hero() {
         >
           <IconMapPin size={18} /> <p>Estadio Tomás Adolfo Ducó</p>
         </motion.a>
-        
-        <motion.a 
+
+        <motion.a
           href="https://kick.com/luquitarodriguez"
           target="_blank"
           rel="noopener noreferrer"
@@ -67,7 +67,7 @@ export default function Hero() {
         </motion.a>
 
 
-        <motion.div 
+        <motion.div
           className={styles.container__content__buttons}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -92,30 +92,31 @@ export default function Hero() {
             </Button>
           </a>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ 
-            opacity: 1, 
-            y: [0, -8, 0] 
+          animate={{
+            opacity: 1,
+            y: [0, -8, 0]
           }}
-          transition={{ 
+          transition={{
             opacity: { duration: 0.6, delay: 0.6 },
-            y: { 
+            y: {
               duration: 2,
               repeat: Infinity,
               ease: "easeInOut",
               delay: 1
             }
           }}
-          style={{ 
+          style={{
             marginTop: "2rem",
-            cursor: "pointer" 
+            cursor: "pointer"
           }}
         >
           <IconCaretDownFilled size={34} />
         </motion.div>
       </motion.div>
-    </section>
+
+    </section><div className={styles.gradient}></div></>
   );
 }

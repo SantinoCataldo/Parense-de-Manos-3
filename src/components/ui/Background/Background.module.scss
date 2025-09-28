@@ -3,10 +3,13 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: url('/images/fondo2.png');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    opacity: 0.3;
+    height: 100vh;
+    background: url('/images/descarga.svg');
+    z-index: 12;
+    opacity: 0.1;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
 }

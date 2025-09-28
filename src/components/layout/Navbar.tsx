@@ -9,7 +9,7 @@ export default function Navbar() {
     
     const navItems = [
         { name: "Inicio", href: "/" },
-        { name: "Boxeadores", href: "/fighters" },
+        { name: "Combates", href: "/combates" },
         { name: "Predicciones", href: "/predictions" },
         { name: "About", href: "/about" },
     ];
