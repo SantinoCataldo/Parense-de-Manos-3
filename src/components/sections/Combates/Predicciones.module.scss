@@ -1,0 +1,44 @@
+@import '@/styles/variables.scss';
+
+.prediccionesBatallas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 11;
+    color: $white;
+    height: 100vh;
+    gap: $spacing;
+
+    &__votacion {
+        display: flex;
+        gap: $spacing;
+        margin: 1.5rem 0 0.5rem 0;
+    }
+
+    &__seleccionado {
+        background: #000000 !important;
+        color: #ffffff !important;
+        font-weight: bold;
+        border: 2px solid #000000;
+    }
+
+    &__siguiente {
+        min-width: 200px;
+    }
+
+    &__botones {
+        display: flex;
+        gap: $spacing;
+    }
+}
+
+.loading,
+.error,
+.finalizado {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}

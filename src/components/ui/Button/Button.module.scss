@@ -6,7 +6,7 @@
   justify-content: center;
   gap: 8px;
   font-family: $font-family-primary;
-  font-weight: 700; // Más bold
+  font-weight: 700;
   text-decoration: none;
   border: 2px solid transparent;
   border-radius: $radius2;
@@ -14,12 +14,10 @@
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
-  letter-spacing: 0.5px; // Espaciado para look más premium
+  letter-spacing: 0.5px;
 
-  // Transición más suave y completa
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-  // Efecto ripple base
   &::before {
     content: '';
     position: absolute;

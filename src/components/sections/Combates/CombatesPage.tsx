@@ -5,6 +5,7 @@ import styles from './Combates.module.scss';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import CombateItem from './CombateItem';
 
 export type Boxeador = {
   id: string;
@@ -40,7 +41,6 @@ export default function CombatesPage() {
   useEffect(() => {
     async function loadCombatesConVotos() {
       try {
-        // 1. Cargar boxeadores
         const { data: boxeadores, error: boxeadoresError } = await supabase
           .from('boxeadores')
           .select('*');
@@ -49,7 +49,6 @@ export default function CombatesPage() {
           throw new Error('Error al cargar boxeadores');
         }
 
-        // 2. Cargar peleas
         const { data: peleas, error: peleasError } = await supabase
           .from('peleas')
           .select('*');
@@ -58,7 +57,6 @@ export default function CombatesPage() {
           throw new Error('Error al cargar peleas');
         }
 
-        // 3. Crear combates únicos basados en el campo 'vs' de boxeadores
         const yaEnfrentados = new Set();
         const combatesConVotos: CombateConVotos[] = [];
 
@@ -66,7 +64,6 @@ export default function CombatesPage() {
           if (b.vs && !yaEnfrentados.has(b.id) && !yaEnfrentados.has(b.vs)) {
             const rival = boxeadores.find((r: Boxeador) => r.id === b.vs);
             if (rival) {
-              // Buscar la pelea correspondiente
               const pelea = peleas?.find((p: Pelea) =>
                 (p.boxeador1_id === b.id && p.boxeador2_id === rival.id) ||
                 (p.boxeador1_id === rival.id && p.boxeador2_id === b.id)
@@ -155,79 +152,9 @@ export default function CombatesPage() {
     <main className={styles.combates}>
       <h1 className={styles.combates__title}>Combates</h1>
       <div className={styles.combates__list}>
-        {combates.map(({ a, b, pelea }, idx) => {
-          const votos1 = pelea?.votos1 || 0;
-          const votos2 = pelea?.votos2 || 0;
-          const totalVotos = votos1 + votos2;
-          const { porcentaje1, porcentaje2 } = calcularPorcentajes(votos1, votos2);
-
-          const esBoxeador1A = pelea?.boxeador1_id === a.id;
-          const votosA = esBoxeador1A ? votos1 : votos2;
-          const votosB = esBoxeador1A ? votos2 : votos1;
-          const porcentajeA = esBoxeador1A ? porcentaje1 : porcentaje2;
-          const porcentajeB = esBoxeador1A ? porcentaje2 : porcentaje1;
-
-          const slugA = a.nombre_artistico.replace(/\s+/g, '-').toLowerCase();
-          const slugB = b.nombre_artistico.replace(/\s+/g, '-').toLowerCase();
-
-          return (
-            <div key={a.id + '-' + b.id}>
-              <div className={styles.combates__list__item}>
-                <div className={styles.combates__list__item__num}>#{idx + 1}</div>
-                <Link href={`/boxeador/${slugA}`} className={styles.combates__list__item__fighter} style={{ cursor: 'pointer' }}>
-                  <Image
-                    src={`/images/Peleadores/${a.nombre_artistico}.webp`}
-                    alt={a.nombre_artistico}
-                    width={200}
-                    height={300} />
-                  <span>{a.nombre_artistico}</span>
-                </Link>
-
-                <div className={styles.combates__list__item__vs}>
-                  <span>VS</span>
-                </div>
-                <Link href={`/boxeador/${slugB}`} className={styles.combates__list__item__fighter} style={{ cursor: 'pointer' }}>
-                  <Image
-                    src={`/images/Peleadores/${b.nombre_artistico}.webp`}
-                    alt={b.nombre_artistico}
-                    width={200}
-                    height={300} />
-                  <span>{b.nombre_artistico}</span>
-                </Link>
-              </div>
-              <div className={styles.combates__list__item__info}>
-                {pelea && (
-                  <>
-                    <div className={styles.combates__list__item__barraVotos}>
-                      <div
-                        className={styles.combates__list__item__barraVotos__a}
-                        style={{ width: `${porcentajeA}%` }}
-                      >
-                        <span>{porcentajeA}%</span>
-                      </div>
-                      <div
-                        className={styles.combates__list__item__barraVotos__b}
-                        style={{ width: `${porcentajeB}%` }}
-                      >
-                        <span>{porcentajeB}%</span>
-                      </div>
-                    </div>
-
-                    <div className={styles.combates__list__item__totalVotos}>
-                      {totalVotos} votos totales
-                    </div>
-                  </>
-                )}
-
-                {!pelea && (
-                  <div className={styles.combates__list__item__sinVotos}>
-                    Sin sistema de votos
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })}
+        {combates.map((combate, idx) => (
+          <CombateItem key={combate.a.id + '-' + combate.b.id} combate={combate} idx={idx} calcularPorcentajes={calcularPorcentajes} />
+        ))}
       </div>
     </main>
   );

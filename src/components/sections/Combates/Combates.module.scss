@@ -48,17 +48,10 @@
     gap: $spacing2 $spacing;
 
     &__item {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+
       display: flex;
       align-items: center;
       gap: $spacing;
-      backdrop-filter: blur(10px);
-      box-shadow:
-        0 0 40px rgba($primary-color, 0.4),
-        0 0 80px rgba($primary-color, 0.2),
-        0 20px 40px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      border: 2px solid $primary-color;
       position: relative;
 
       &__num {
@@ -77,13 +70,34 @@
       &::before {
         content: '';
         position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
+        width: 50%;
+        height: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid $primary-color;
+        box-shadow:
+          0 0 40px rgba($primary-color, 0.4),
+          0 0 80px rgba($primary-color, 0.2),
+          0 20px 40px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
         background: linear-gradient(45deg, transparent, $primary-color, transparent);
         z-index: -1;
+         animation: borderGlow 2s ease-in-out infinite alternate; 
       }
+
+        @keyframes borderGlow {
+
+      0%,
+      100% {
+        opacity: 0.5;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
 
       &__vs {
         font-size: 60px;
@@ -143,12 +157,12 @@
       }
 
       &__barraVotos {
-        margin: $spacing05 0;
+        margin: 0 0 $spacing05 0;
         width: 100%;
         overflow: hidden;
         height: $spacing;
         position: relative;
-   
+
         box-shadow:
           0 0 40px rgba($primary-color, 0.4),
           0 0 80px rgba($primary-color, 0.2),
@@ -186,6 +200,7 @@
         font-weight: 600;
         color: $background;
         padding: 0 5px;
+        position: relative;
         background: $white;
       }
 

@@ -129,6 +129,19 @@
                 animation: borderGlow 2s ease-in-out infinite alternate;
             }
 
+
+            @keyframes borderGlow {
+
+                0%,
+                100% {
+                    opacity: 0.5;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+            }
+
             p {
                 font-size: 32px;
                 font-weight: 900;
@@ -146,7 +159,7 @@
         justify-content: end;
         text-transform: uppercase;
         align-items: end;
-      
+
 
         &__label {
             font-size: 52px;
@@ -164,7 +177,7 @@
             height: 200px;
             transition: all 0.3s ease;
 
-            
+
             &:hover {
                 transform: scale(1.05);
             }
