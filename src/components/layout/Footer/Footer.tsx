@@ -7,9 +7,9 @@ import { motion } from 'framer-motion';
 export default function Footer() {
   const socialLinks = [
     { href: 'https://www.youtube.com/@ParensedeManos', icon: IconBrandYoutube, label: 'YouTube' },
-    { href: 'https://www.instagram.com/parense.de.manos/', icon: IconBrandInstagram, label: 'Instagram' },
-    { href: 'https://www.tiktok.com/@parense.de.manos', icon: IconBrandTiktok, label: 'TikTok' },
-    { href: 'https://x.com/parensedemanos', icon: IconBrandX, label: 'X (Twitter)' },
+    { href: 'https://www.instagram.com/parensedemanosok/', icon: IconBrandInstagram, label: 'Instagram' },
+    { href: 'https://www.tiktok.com/@parenlamanok', icon: IconBrandTiktok, label: 'TikTok' },
+    { href: 'https://x.com/ParenseDeManos', icon: IconBrandX, label: 'X (Twitter)' },
   ];
 
   return (
@@ -21,7 +21,6 @@ export default function Footer() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
         >
-          <h3 className={styles.footer__social__title}>Síguenos</h3>
           <div className={styles.footer__social__links}>
             {socialLinks.map((link, index) => {
               const IconComponent = link.icon;
