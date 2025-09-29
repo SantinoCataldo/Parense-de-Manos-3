@@ -45,6 +45,12 @@
         &__img {
             object-fit: cover;
             object-position: top;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: scale(1.05);
+                transition: all 0.3s ease;
+            }
         }
 
         p {

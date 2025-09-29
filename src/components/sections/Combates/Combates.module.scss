@@ -42,9 +42,10 @@
 
   &__list {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
-    gap: $spacing;
+    gap: $spacing2 $spacing;
 
     &__item {
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
@@ -94,11 +95,18 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-
+        box-sizing: content-box;
+        overflow: hidden;
 
         img {
           object-fit: cover;
           object-position: top;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+          }
         }
 
         span {
@@ -137,23 +145,36 @@
       &__barraVotos {
         margin: $spacing05 0;
         width: 100%;
-        height: 20px;
         overflow: hidden;
+        height: $spacing;
         position: relative;
+   
+        box-shadow:
+          0 0 40px rgba($primary-color, 0.4),
+          0 0 80px rgba($primary-color, 0.2),
+          0 20px 40px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        font-weight: 800;
 
         &__a {
           height: 100%;
-          background: #b3b0a9;
+          background: $primary-color;
           position: absolute;
           left: 0;
           top: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         &__b {
           height: 100%;
-          background: #ffbd08;
-          backdrop-filter: blur(10px);
+          background: $white;
           position: absolute;
+          display: flex;
+          color: $primary-color;
+          align-items: center;
+          justify-content: center;
           right: 0;
           top: 0;
         }

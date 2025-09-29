@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from './BoxeadorInfo.module.scss';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/ui/Button/Button';
+import Link from 'next/link';
 
 export type Boxeador = {
     id: string;
@@ -21,7 +22,7 @@ export default function BoxeadorInfo({ boxeador, rival }: { boxeador: Boxeador, 
     const router = useRouter();
     return (
         <div className={styles.boxeadorInfo}>
-            <div className={styles.boxeadorInfo__imgContainer}>
+            <Link href={`/boxeador/${boxeador.nombre_artistico.replace(/\s+/g, '-').toLowerCase()}`} className={styles.boxeadorInfo__imgContainer}>
                 <Image
                     src={`/images/Peleadores/${boxeador.nombre_artistico}.webp`}
                     alt={boxeador.nombre_artistico}
@@ -30,7 +31,7 @@ export default function BoxeadorInfo({ boxeador, rival }: { boxeador: Boxeador, 
                     className={styles.boxeadorInfo__imgContainer__img}
                 />
                 <p>{boxeador.nombre_real}</p>
-            </div>
+            </Link>
             <section className={styles.boxeadorInfo__section}>
                 <h1>{boxeador.nombre_artistico}</h1>
                 <span>stats</span>

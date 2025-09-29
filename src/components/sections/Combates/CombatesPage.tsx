@@ -174,38 +174,26 @@ export default function CombatesPage() {
             <div key={a.id + '-' + b.id}>
               <div className={styles.combates__list__item}>
                 <div className={styles.combates__list__item__num}>#{idx + 1}</div>
-                <div
-                  className={styles.combates__list__item__fighter}
-                  onClick={() => pelea && handleVote(pelea.id, a.id, esBoxeador1A)}
-                  style={{ cursor: pelea ? 'pointer' : 'default' }}
-                >
+                <Link href={`/boxeador/${slugA}`} className={styles.combates__list__item__fighter} style={{ cursor: 'pointer' }}>
                   <Image
                     src={`/images/Peleadores/${a.nombre_artistico}.webp`}
                     alt={a.nombre_artistico}
                     width={200}
                     height={300} />
-                  <span>
-                    <Link href={`/boxeador/${slugA}`}>{a.nombre_artistico}</Link>
-                  </span>
-                </div>
+                  <span>{a.nombre_artistico}</span>
+                </Link>
 
                 <div className={styles.combates__list__item__vs}>
                   <span>VS</span>
                 </div>
-                <div
-                  className={styles.combates__list__item__fighter}
-                  onClick={() => pelea && handleVote(pelea.id, b.id, !esBoxeador1A)}
-                  style={{ cursor: pelea ? 'pointer' : 'default' }}
-                >
+                <Link href={`/boxeador/${slugB}`} className={styles.combates__list__item__fighter} style={{ cursor: 'pointer' }}>
                   <Image
                     src={`/images/Peleadores/${b.nombre_artistico}.webp`}
                     alt={b.nombre_artistico}
                     width={200}
                     height={300} />
-                  <span>
-                    <Link href={`/boxeador/${slugB}`}>{b.nombre_artistico}</Link>
-                  </span>
-                </div>
+                  <span>{b.nombre_artistico}</span>
+                </Link>
               </div>
               <div className={styles.combates__list__item__info}>
                 {pelea && (
@@ -213,10 +201,16 @@ export default function CombatesPage() {
                     <div className={styles.combates__list__item__barraVotos}>
                       <div
                         className={styles.combates__list__item__barraVotos__a}
-                        style={{ width: `${porcentajeA}%` }} />
+                        style={{ width: `${porcentajeA}%` }}
+                      >
+                        <span>{porcentajeA}%</span>
+                      </div>
                       <div
                         className={styles.combates__list__item__barraVotos__b}
-                        style={{ width: `${porcentajeB}%` }} />
+                        style={{ width: `${porcentajeB}%` }}
+                      >
+                        <span>{porcentajeB}%</span>
+                      </div>
                     </div>
 
                     <div className={styles.combates__list__item__totalVotos}>
