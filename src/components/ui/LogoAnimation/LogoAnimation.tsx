@@ -33,7 +33,7 @@ export default function LogoAnimation({
       
       setTimeout(() => {
         onAnimationComplete?.();
-      }, 3200); // 3.2 segundos para la animación de construcción
+      }, 3200); 
       
     }, delay);
   };

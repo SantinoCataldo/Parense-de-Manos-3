@@ -1,13 +1,16 @@
 @import '@/styles/variables.scss';
 
 .container {
-    margin-top: $spacing2;
     min-height: 100vh;
     display: flex;
     z-index: 15;
     position: relative;
     align-items: center;
     justify-content: center;
+
+    @media (max-height: 900px) {
+        margin: $spacing2*2 0;
+    }
 
     &::after {
         content: '';
@@ -179,8 +182,8 @@
             }
 
             @media (max-width: 768px) {
-                width: 100px;
-                height: 120px;
+                width: 120px;
+                height: 100px;
             }
 
             @media (max-width: 480px) {
@@ -188,6 +191,10 @@
                 height: 120px;
             }
 
+            @media (max-height: 900px) {
+                height: 120px;
+                width: 100px;
+            }
 
             &:hover,
             &--hovered {

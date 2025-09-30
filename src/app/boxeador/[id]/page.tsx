@@ -1,5 +1,6 @@
 import { supabase } from '@/utils/supabaseClient';
 import BoxeadorInfo, { Boxeador } from '@/components/sections/BoxeadorInfo/BoxeadorInfo';
+import styles from './page.module.scss';
 
 
 export default async function BoxeadorPage({ params }: { params: { id: string } }) {
@@ -27,5 +28,9 @@ export default async function BoxeadorPage({ params }: { params: { id: string } 
     }
   }
 
-  return <BoxeadorInfo boxeador={boxeador} rival={rival} />;
+  return (
+    <div className={styles.boxeadoresContainer}>
+      <BoxeadorInfo boxeador={boxeador} rival={rival} />
+    </div>
+  );
 }

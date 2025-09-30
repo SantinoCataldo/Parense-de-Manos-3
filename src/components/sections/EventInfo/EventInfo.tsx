@@ -39,13 +39,8 @@ export default function EventInfo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                    <iframe
-                        src="https://www.youtube.com/embed/75LI44q0nsg?si=x34ktcx0I3RHYv1W"
-                        title="Parense de Manos 2 - Evento Anterior"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        className={styles.container__video__iframe}
-                        allowFullScreen>
-                    </iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Ft6GN_BMMwI?si=68GsFYDuBGa-8f3M" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  className={styles.container__video__iframe}></iframe>
+                
                 </motion.div>
 
                 <motion.div

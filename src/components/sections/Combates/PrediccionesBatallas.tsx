@@ -159,12 +159,14 @@ export default function PrediccionesBatallas() {
       </div>
       <div className={styles.prediccionesBatallas__botones}>
         <Button
+          variant="secondary"
           onClick={() => setCurrent((c) => Math.max(0, c - 1))}
           disabled={current === 0 || enviando}
         >
           Anterior pelea
         </Button>
         <Button
+          variant="secondary"
           onClick={handleSiguiente}
           disabled={!voto || enviando}
           className={styles.siguiente}

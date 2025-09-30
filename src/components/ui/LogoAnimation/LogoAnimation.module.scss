@@ -6,17 +6,17 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  
+
   &.small {
     width: clamp(120px, 30vw, 200px);
     height: clamp(68px, 8vw, 114px);
   }
-  
+
   &.medium {
     width: clamp(180px, 45vw, 320px);
     height: clamp(103px, 15vw, 183px);
   }
-  
+
   &.large {
     width: clamp(240px, 70vw, 640px);
     height: clamp(140px, 25vw, 380px);
@@ -29,17 +29,42 @@
       max-width: 340px;
       max-height: 180px;
     }
+
     &.medium {
       width: 80vw;
       height: auto;
       max-width: 220px;
       max-height: 120px;
     }
+
     &.small {
       width: 60vw;
       height: auto;
       max-width: 120px;
       max-height: 68px;
+    }
+  }
+
+  @media (max-height: 900px) {
+    &.large {
+      width: 60vw;
+      max-width: 400px;
+      height: auto;
+      max-height: 200px;
+    }
+
+    &.medium {
+      width: 40vw;
+      max-width: 140px;
+      height: auto;
+      max-height: 80px;
+    }
+
+    &.small {
+      width: 30vw;
+      max-width: 80px;
+      height: auto;
+      max-height: 40px;
     }
   }
 }
@@ -48,7 +73,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  
+
   svg {
     width: 100%;
     height: 100%;
@@ -69,10 +94,12 @@
     stroke-dashoffset: 1000;
     fill: transparent;
   }
+
   70% {
     stroke-dashoffset: 0;
     fill: transparent;
   }
+
   100% {
     stroke-dashoffset: 0;
     fill: white;
@@ -85,10 +112,12 @@
     stroke-dashoffset: 1000;
     fill: transparent;
   }
+
   80% {
     stroke-dashoffset: 0;
     fill: transparent;
   }
+
   100% {
     stroke-dashoffset: 0;
     fill: white;
@@ -98,62 +127,76 @@
 
 .logoContainer.animate {
   svg {
-    path:nth-child(1) { // P
+    path:nth-child(1) {
+      // P
       animation: drawPath 0.8s ease-in-out 0s forwards;
     }
-    
-    path:nth-child(2) { // A
+
+    path:nth-child(2) {
+      // A
       animation: drawPath 0.8s ease-in-out 0.1s forwards;
     }
-    
-    path:nth-child(3) { // R
+
+    path:nth-child(3) {
+      // R
       animation: drawPath 0.8s ease-in-out 0.2s forwards;
     }
-    
-    path:nth-child(4) { // E
+
+    path:nth-child(4) {
+      // E
       animation: drawPath 0.8s ease-in-out 0.3s forwards;
     }
-    
-    path:nth-child(5) { // N
+
+    path:nth-child(5) {
+      // N
       animation: drawPath 0.8s ease-in-out 0.4s forwards;
     }
-    
-    path:nth-child(6) { // S
+
+    path:nth-child(6) {
+      // S
       animation: drawPath 0.8s ease-in-out 0.5s forwards;
     }
-    
-    path:nth-child(7) { // E
+
+    path:nth-child(7) {
+      // E
       animation: drawPath 0.8s ease-in-out 0.6s forwards;
     }
-    
-    path:nth-child(8) { // D
+
+    path:nth-child(8) {
+      // D
       animation: drawPath 0.6s ease-in-out 0.9s forwards;
     }
-    
-    path:nth-child(9) { // E
+
+    path:nth-child(9) {
+      // E
       animation: drawPath 0.6s ease-in-out 1.0s forwards;
     }
-    
-    path:nth-child(10) { // M
+
+    path:nth-child(10) {
+      // M
       animation: drawPathSlow 1.2s ease-in-out 1.3s forwards;
     }
-    
-    path:nth-child(11) { // A
+
+    path:nth-child(11) {
+      // A
       animation: drawPathSlow 1.2s ease-in-out 1.4s forwards;
     }
-    
-    path:nth-child(12) { // N
+
+    path:nth-child(12) {
+      // N
       animation: drawPathSlow 1.2s ease-in-out 1.5s forwards;
     }
-    
-    path:nth-child(13) { // O
+
+    path:nth-child(13) {
+      // O
       animation: drawPathSlow 1.2s ease-in-out 1.6s forwards;
     }
-    
-    path:nth-child(14) { // S
+
+    path:nth-child(14) {
+      // S
       animation: drawPathSlow 1.2s ease-in-out 1.7s forwards;
     }
-    
+
 
     path:nth-child(n+15) {
       animation: drawPath 0.6s ease-in-out 2.5s forwards;
@@ -167,7 +210,7 @@
     transition: transform 0.3s ease;
     transform: scale(1.02);
     fill: $primary-color;
-    
+
     path {
       transition: transform 0.3s ease;
     }

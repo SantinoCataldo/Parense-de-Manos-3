@@ -9,7 +9,6 @@
   font-weight: 700;
   text-decoration: none;
   border: 2px solid transparent;
-  border-radius: $radius2;
   cursor: pointer;
   text-transform: uppercase;
   position: relative;
@@ -192,6 +191,25 @@
 }
 
 @media (max-width: 768px) {
+  .button {
+    &--sm {
+      padding: 6px 12px;
+      font-size: 11px;
+    }
+
+    &--md {
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+
+    &--lg {
+      padding: 14px 28px;
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-height: 900px) {
   .button {
     &--sm {
       padding: 6px 12px;

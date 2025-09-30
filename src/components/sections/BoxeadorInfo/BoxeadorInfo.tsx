@@ -65,7 +65,6 @@ export default function BoxeadorInfo({ boxeador, rival }: { boxeador: Boxeador, 
                     </div>
                 </div>
             )}
-            <Button className={styles.boxeadorInfo__button}>Hace tu prediccion</Button>
         </div>
     );
 }

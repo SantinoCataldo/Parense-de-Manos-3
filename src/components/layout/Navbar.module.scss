@@ -8,7 +8,11 @@
     align-items: center;
     justify-content: center;
     z-index: 50;
-    padding: $spacing05 $spacing;
+    padding: $spacing05;
+
+    @media (max-height: 900px) {
+        padding: $spacing05;
+    }
 
     &__list {
         display: flex;
@@ -16,10 +20,14 @@
         background: #ffffff13;
         backdrop-filter: blur(10px);
         border: 1px solid #ffffff34;
-        border-radius: $radius2;
+
         gap: $spacing;
         margin: 0;
-        padding: $spacing05 $spacing;
+        padding: 8px $spacing;
+
+        @media (max-height: 900px) {
+            padding: 5px $spacing;
+        }
     }
 
     &__link {

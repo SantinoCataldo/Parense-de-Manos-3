@@ -8,18 +8,38 @@
     align-items: center;
     position: relative;
     z-index: 11;
+    margin-top: $spacing2;
     color: $white;
     height: 100vh;
     gap: $spacing;
 
+    @media (max-height: 900px) {
+        gap: $spacing05;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.1), transparent),
+            radial-gradient(1px 1px at 40px 70px, rgba($primary-color, 0.2), transparent);
+        background-repeat: repeat;
+        background-size: 100px 100px;
+        z-index: -1;
+        animation: float 20s infinite linear;
+    }
+
     &__votacion {
         display: flex;
         gap: $spacing;
-        margin: 1.5rem 0 0.5rem 0;
     }
 
     &__seleccionado {
-        background: #000000 !important;
+        background: #00000000 !important;
         color: #ffffff !important;
         font-weight: bold;
         border: 2px solid #000000;

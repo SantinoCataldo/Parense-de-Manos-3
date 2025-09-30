@@ -12,7 +12,6 @@ export default function Navbar() {
         { name: "Boxeadores", href: "/boxeador" },
         { name: "Combates", href: "/combates" },
         { name: "Predicciones", href: "/predicciones" },
-        { name: "About", href: "/about" },
     ];
 
     const getLinkClass = (href: string) => {
