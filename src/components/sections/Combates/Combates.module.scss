@@ -118,6 +118,7 @@
         text-align: center;
         box-sizing: content-box;
         overflow: hidden;
+        
 
         img {
           object-fit: cover;
@@ -125,7 +126,7 @@
           transition: transform 0.3s ease;
           
           @media (max-width: 480px) {
-            width: 150px;
+            width: 140px;
             height: 200px;
             z-index: 4;
           }
