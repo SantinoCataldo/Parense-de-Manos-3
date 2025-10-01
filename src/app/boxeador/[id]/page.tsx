@@ -1,10 +1,38 @@
 import { supabase } from '@/utils/supabaseClient';
 import BoxeadorInfo, { Boxeador } from '@/components/sections/BoxeadorInfo/BoxeadorInfo';
 import styles from './page.module.scss';
+import type { Metadata } from 'next';
 
+type Props = {
+  params: Promise<{ id: string }>;
+};
 
-export default async function BoxeadorPage({ params }: { params: { id: string } }) {
-  const nombreArtistico = params.id.replace(/-/g, ' ');
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const nombreArtistico = id.replace(/-/g, ' ');
+
+  const { data } = await supabase
+    .from('boxeadores')
+    .select('nombre_artistico, descripcion')
+    .ilike('nombre_artistico', nombreArtistico)
+    .single();
+
+  if (!data) {
+    return {
+      title: 'Boxeador no encontrado',
+      description: 'No se pudo encontrar información del boxeador solicitado.',
+    };
+  }
+
+  return {
+    title: `${data.nombre_artistico} - Párese de Manos 3`,
+    description: data.descripcion || `Información sobre ${data.nombre_artistico}`,
+  };
+}
+
+export default async function BoxeadorPage({ params }: Props) {
+  const { id } = await params;
+  const nombreArtistico = id.replace(/-/g, ' ');
 
   const { data, error } = await supabase
     .from('boxeadores')
