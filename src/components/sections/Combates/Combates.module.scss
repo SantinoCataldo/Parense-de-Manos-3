@@ -84,24 +84,31 @@
         backdrop-filter: blur(10px);
         background: linear-gradient(45deg, transparent, $primary-color, transparent);
         z-index: -1;
-         animation: borderGlow 2s ease-in-out infinite alternate; 
+        animation: borderGlow 2s ease-in-out infinite alternate;
       }
 
-        @keyframes borderGlow {
+      @keyframes borderGlow {
 
-      0%,
-      100% {
-        opacity: 0.5;
-      }
+        0%,
+        100% {
+          opacity: 0.5;
+        }
 
-      50% {
-        opacity: 1;
+        50% {
+          opacity: 1;
+        }
       }
-    }
 
       &__vs {
         font-size: 60px;
         font-weight: 900;
+
+        @media (max-width: 480px) {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
       }
 
       &__fighter {
@@ -116,6 +123,12 @@
           object-fit: cover;
           object-position: top;
           transition: transform 0.3s ease;
+          
+          @media (max-width: 480px) {
+            width: 150px;
+            height: 200px;
+            z-index: 4;
+          }
 
           &:hover {
             transform: scale(1.05);
@@ -126,6 +139,7 @@
         span {
           position: absolute;
           bottom: 0;
+          z-index: 12;
           font-size: 18px;
           text-transform: uppercase;
           font-weight: 600;

@@ -24,10 +24,10 @@
 
   @media (max-width: 600px) {
     &.large {
-      width: 95vw;
+      width: 95vw !important;
       height: auto;
-      max-width: 340px;
-      max-height: 180px;
+      max-width: 360px !important;
+      max-height: 160px !important;
     }
 
     &.medium {
